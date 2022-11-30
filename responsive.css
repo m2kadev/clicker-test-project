@@ -1,0 +1,51 @@
+@media only screen and (max-width: 1400px) {
+  :root {
+    --rader-y: -55.75px;
+    --rader-right-h: 780px;
+     --font-medium: 24px;
+    --font-small: 16px;
+    --rader-left-w: 578px;
+  }
+
+  .rader-background {
+    transform: translate(calc(var(--rader-left-w) / -4), var(--rader-y)) scale(.65);
+  }
+
+  .btn-md {
+    font-size: 20px;
+  }
+
+  .btn-md-2 {
+    font-size: 20px;
+  }
+
+  .filter-flex {
+    margin-top: 23.5px;
+  }
+
+  .filter-flex > span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .filter-flex > img {
+    width: 23.208px;
+  }
+
+  .main-logo-wrapper > img {
+    width: 175.8px;
+  }
+
+  .rader-info-data-right img {
+    width: 80%;
+  }
+
+  .rader-info-data {
+    padding: 8.29px 18.5px;
+  }
+
+  .main-logo-wrapper {
+    margin-top: 19.8px;
+}
+
+}

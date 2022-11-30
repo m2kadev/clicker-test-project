@@ -1,0 +1,500 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* I tried hard for this project */
+
+:root {
+    --light: #fff;
+    --accent-red: #D40511;
+    --accent-yellow: #FFCC00;
+    --accent-blue: #146BB0;
+    
+    --font-medium: 30px;
+    --font-small: 20px;
+    --info-gap: 20px;
+    --info-border-radius: 8px;
+
+    --rader-w: 1579px;
+    --rader-h: 1198px;
+    /* --rader-y: -34px; */
+    --rader-y: -122.5px;
+    /* --rader-y: -55.75px; */
+
+    --rader-left-w: 678px;
+    --rader-left-h: 395px;
+
+   /*  --rader-right-h: 758px; */
+    --rader-right-h: 1083px;
+}
+
+body {
+    font-family: 'Delivery', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.rader-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    top: -191px;
+    left: 0;
+}
+
+.rader-bg > img {
+    width: 100%;
+}
+
+/* rader content wrapper */
+
+.rader-content-wrapper {
+    width: 100%;
+    display: flex;
+    /* align-items: flex-start; */
+    /* overflow-x: hidden; */
+    overflow: hidden;
+    max-height: calc(var(--rader-right-h) + 24px);
+}
+
+/* rader content left */
+
+.rader-content-left {
+    width: var(--rader-left-w);
+    max-height: calc(var(--rader-right-h) + 24px);
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    margin-left: 55px;
+    z-index: 1;
+
+}
+
+.main-logo-wrapper {
+    transform: translateX(-17px);
+    margin-top: 24px;
+}
+
+.rader-info-header {
+    width: 100%;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    transform: translateY(-24px);
+}
+
+.rader-info-header  p {
+    font-size: var(--font-medium);
+    font-weight: bold;
+}
+
+.rader-info-header > a {
+    font-size: var(--font-small);
+    color: var(--light);
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    padding-right: calc(var(--info-gap) + 5px);
+    margin-left: auto;
+}
+
+.rader-info-wrapper {
+    width: 100%;
+    position: relative;
+    grid-row: 3 / 4;
+    transform: translateY(-24px);
+    overflow-y: hidden;
+}
+
+.rader-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--info-gap);
+    /* margin-top: 22px; */
+    height: 100%;
+    overflow-y: auto;
+}
+
+.rader-info-wrapper::after {
+    content: '';
+    width: calc(100% - var(--info-gap));
+    position: absolute;
+    height: 175px;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(180deg, rgba(4, 13, 52, 0) 0%, #040c29 100%);
+}
+
+/* .rader-info-overlay {
+    position: absolute;
+    width: calc(100% - var(--info-gap));
+    height: 175px;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(180deg, rgba(4, 13, 52, 0) 0%, #040c29 100%);
+} */
+
+.rader-info::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--light);
+}
+
+.rader-info::-webkit-scrollbar-thumb {
+    background-color: var(--accent-red);
+}
+
+.rader-info-data {
+    width: calc(50% - var(--info-gap));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13.29px 18.5px;
+    border-radius: var(--info-border-radius);
+    background-image: url('./images/info-inner-bg.png');
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    border: 1px solid var(--light);
+}
+
+.rader-info-data-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7.5px;
+}
+
+.mark {
+    width: 18px;
+    height: 18px;
+    background-color: var(--accent-blue);
+    position: relative;
+    border-radius: 100vmin;
+}
+
+.mark::before {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    background-color: var(--light);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100vmin;
+}
+
+.rader-info-data-left > p {
+    color: var(--light);
+    font-size: var(--font-small);
+    font-weight: bold;
+}
+
+.rader-info-data-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12.49px;
+}
+
+/* rader content right */
+
+.rader-content-right {
+    flex: 1 1 auto;
+    width: auto;
+    max-height: var(--rader-right-h);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.filter-flex {
+    display: flex;
+    align-items: center;
+    color: var(--light);
+    gap: 7.09px;
+    transition: .3s;
+    cursor: pointer;
+    margin-top: 43.5px;
+    z-index: 1;
+    margin-right: 49px;
+}
+
+.filter-flex:hover {
+    color: var(--accent-yellow);
+}
+
+.filter-flex > span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rader-btn-group {
+    z-index: 1;
+    margin-right: 49px;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-md {
+    padding: 16px 76px;
+    border-radius: var(--info-border-radius);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-md-2 {
+    padding: 16px;
+    border-radius: var(--info-border-radius);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    border: 1px solid var(--light);
+    color: var(--light);
+    transition: .3s;
+}
+
+.btn-transparent:hover {
+    background-color: var(--accent-red);
+    border: 1px solid transparent;
+}
+
+.yellow-gradient {
+    margin-top: 26px;
+    transform: translateX(79px);
+    width: 100%;
+    height: 83px;
+    z-index: 1;
+    background: rgb(255,204,0);
+    background: linear-gradient(270deg, rgba(255,204,0,1) 0%, rgba(255,204,0,0.4542191876750701) 58%, rgba(255,204,0,0) 100%);
+}
+
+/* rader image, rotating section */
+
+.rader-view {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.rader-background {
+    position: absolute;
+    width: var(--rader-w);
+    height: var(--rader-h);
+    display: block;
+    background: url(./images/rader-bg.png);
+    top: 0;
+    left: 0;
+    transform-origin: 0px 0px;
+    transform: translate(calc((var(--rader-left-w) + 30px) / -4), var(--rader-y)) scale(1);
+}
+
+.rader-rotate {
+    position: absolute;
+    width: var(--rader-w);
+    height: var(--rader-h);
+    top: 0%;
+    z-index: 2;
+    left: 0%;
+    /* transform-origin: center;
+    animation: rotating 3s linear infinite; */
+}
+
+.rader-rotate > img {
+    position: absolute;
+    top: calc(89.16px - var(--rader-y));
+    left: calc(219.16px - var(--rader-y));
+    /* transform-origin: bottom right;
+    animation: rotating 3s linear infinite;  */
+}
+
+@keyframes rotating {
+    0% {
+        rotate: 0deg;
+    }
+    25% {
+        rotate: 90deg;
+    }
+    50% {
+        rotate: 180deg;
+    }
+    75% {
+        rotate: 270deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+/* rader circle section */
+
+.rader-circle-wrapper {
+    position: relative;
+    width: 931px;
+    height: 931px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 100vmin;
+    top: calc(50% + var(--rader-y) + 32px);
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - var(--rader-y) + 32px));
+}
+
+.rader-circle-flex {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    border-radius: 100vmin;
+    border: 2px dashed var(--accent-red);
+}
+
+.transparent-clip-one, .transparent-clip-two {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: transparent;
+    z-index: 1;
+    transform-origin: bottom right;
+}
+
+.transparent-clip-one {
+    rotate: 216deg;
+}
+
+.transparent-clip-two {
+    rotate: -126deg;
+}
+
+.rader-circle-half {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rader-child-wrapper {
+    min-width: 200%;
+    height: 100%;
+}
+
+.rader-path {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 100vmin;
+}
+
+.rader-sectors {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: #fc0;
+    transition: all .3s ease;
+}
+
+.rader-sectors::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.25);
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.rader-sectors.dropped::after {
+    opacity:1;
+}
+
+.rader-sectors.ui-droppable-hover::after {
+    opacity:1;
+}
+
+.rader-sectors:hover::after {
+    opacity:1;
+}
+
+.rader-circle-left-path .rader-sectors {
+    top:0;
+    left:0;
+    transform-origin:bottom right;
+    border-right:2px solid #fff;
+}
+
+.rader-circle-left-path .rader-sectors.sector-one {
+    transform: rotate(0deg);
+}
+
+.rader-circle-left-path .rader-sectors.sector-two {
+    transform: rotate(-42deg);
+}
+
+.rader-circle-left-path .rader-sectors.sector-three {
+    transform: rotate(-84deg);
+}
+
+.rader-circle-left-path .rader-sectors.sector-four {
+    transform: rotate(-126deg);
+    overflow: hidden;
+}
+
+.rader-circle-right-path .rader-sectors {
+    top:0;
+    right:0;
+    transform-origin:bottom left;
+}
+
+.rader-circle-right-path .rader-sectors:not(:first-of-type){
+    border-left: 2px solid #fff;
+}
+
+.rader-circle-right-path .rader-sectors.sector-one {
+    transform:rotate(0deg);
+}
+
+.rader-circle-right-path .rader-sectors.sector-two {
+    transform:rotate(42deg);
+}
+
+.rader-circle-right-path .rader-sectors.sector-three {
+    transform:rotate(84deg);
+}
+
+.rader-circle-right-path .rader-sectors.sector-four {
+    transform:rotate(126deg);
+}
+
+.rader-circle-child {
+    width:calc(100% - 125px);
+    height:calc(100% - 125px);
+    border: 2px solid #fff;
+}
