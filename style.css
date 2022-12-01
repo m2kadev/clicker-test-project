@@ -4,13 +4,14 @@
     box-sizing: border-box;
 }
 
-/* I tried hard for this project */
+/* ------------ global variables -------------- */
 
 :root {
     --light: #fff;
     --accent-red: #D40511;
     --accent-yellow: #FFCC00;
     --accent-blue: #146BB0;
+    --accent-green: #6D942D;
     
     --font-medium: 30px;
     --font-small: 20px;
@@ -39,6 +40,8 @@ body {
     scroll-behavior: smooth;
 }
 
+/* ------------ background ------------ */
+
 .rader-bg {
     position: fixed;
     width: 100%;
@@ -53,13 +56,11 @@ body {
     width: 100%;
 }
 
-/* rader content wrapper */
+/* ----------------- rader content wrapper ----------------- */
 
 .rader-content-wrapper {
     width: 100%;
     display: flex;
-    /* align-items: flex-start; */
-    /* overflow-x: hidden; */
     overflow: hidden;
     max-height: calc(var(--rader-right-h) + 24px);
 }
@@ -68,12 +69,11 @@ body {
 
 .rader-content-left {
     width: var(--rader-left-w);
-    max-height: calc(var(--rader-right-h) + 24px);
+    height: calc(var(--rader-right-h) + 24px);
     display: grid;
     grid-template-rows: auto auto 1fr;
     margin-left: 55px;
     z-index: 1;
-
 }
 
 .main-logo-wrapper {
@@ -109,16 +109,20 @@ body {
     position: relative;
     grid-row: 3 / 4;
     transform: translateY(-24px);
-    overflow-y: hidden;
+    height: auto;
+    /* overflow: hidden; */
 }
 
 .rader-info {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    width: 100%;
     gap: var(--info-gap);
     /* margin-top: 22px; */
-    height: 100%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .rader-info-wrapper::after {
@@ -128,17 +132,11 @@ body {
     height: 175px;
     left: 0;
     bottom: 0;
+    z-index: 100;
     background-image: linear-gradient(180deg, rgba(4, 13, 52, 0) 0%, #040c29 100%);
 }
 
-/* .rader-info-overlay {
-    position: absolute;
-    width: calc(100% - var(--info-gap));
-    height: 175px;
-    left: 0;
-    bottom: 0;
-    background-image: linear-gradient(180deg, rgba(4, 13, 52, 0) 0%, #040c29 100%);
-} */
+/* custom rader info scrollbar */
 
 .rader-info::-webkit-scrollbar {
     width: 5px;
@@ -148,6 +146,8 @@ body {
 .rader-info::-webkit-scrollbar-thumb {
     background-color: var(--accent-red);
 }
+
+/* rader info data */
 
 .rader-info-data {
     width: calc(50% - var(--info-gap));
@@ -159,14 +159,58 @@ body {
     background-image: url('./images/info-inner-bg.png');
     background-position: center;
     background-size: cover;
-    overflow: hidden;
     border: 1px solid var(--light);
+    position: relative;
+    z-index: 10;
+    cursor: grab;
+}
+
+.rader-info-data.on-dragging,
+.rader-info-data.dragged {
+    padding: 0;
+    display: inline;
+    width: unset;
+    border: none;
+    background-image: unset;
+    cursor: grab;
+}
+
+.rader-info-data.dragged {
+    cursor: grab;
+}
+
+.rader-info-data.on-dragging {
+    cursor: grabbing;
+}
+
+.rader-info-data.on-dragging  p,
+.rader-info-data.dragged p {
+    color: #B59334;
+    font-size: var(--font-small);
+}
+
+.rader-info-data.on-dragging  p {
+    display: none;
+}
+
+.rader-info-data.dragged p {
+    display: inline-block;
+}
+
+.rader-info-data.on-dragging > .rader-info-data-right,
+.rader-info-data.dragged > .rader-info-data-right {
+    display: none;
+}
+
+.rader-info-data.on-dragging > .rader-info-data-left .mark,
+ .rader-info-data.dragged > .rader-info-data-left .mark{
+    background-color: var(--accent-green);
 }
 
 .rader-info-data-left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   /*  justify-content: space-between; */
     gap: 7.5px;
 }
 
@@ -209,6 +253,7 @@ body {
     flex: 1 1 auto;
     width: auto;
     max-height: var(--rader-right-h);
+    height: var(--rader-right-h);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -220,7 +265,6 @@ body {
     align-items: center;
     color: var(--light);
     gap: 7.09px;
-    transition: .3s;
     cursor: pointer;
     margin-top: 43.5px;
     z-index: 1;
@@ -229,6 +273,10 @@ body {
 
 .filter-flex:hover {
     color: var(--accent-yellow);
+}
+
+.filter-flex:hover > img {
+    filter: brightness(0) invert(68%) sepia(100%) saturate(475%) hue-rotate(359deg) brightness(102%) contrast(101%);
 }
 
 .filter-flex > span {
@@ -279,6 +327,8 @@ body {
     border: 1px solid transparent;
 }
 
+/* yellow gradient background */
+
 .yellow-gradient {
     margin-top: 26px;
     transform: translateX(79px);
@@ -312,38 +362,33 @@ body {
 
 .rader-rotate {
     position: absolute;
-    width: var(--rader-w);
-    height: var(--rader-h);
-    top: 0%;
-    z-index: 2;
-    left: 0%;
-    /* transform-origin: center;
-    animation: rotating 3s linear infinite; */
+    width: 931px;
+    height: 931px;
+    background-color: transparent;
+    border-radius: 100vmin;
+    top: calc(50% + var(--rader-y) + 32px);
+    background-color: transparent;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, calc(-50% - var(--rader-y) + 32px));
+    animation: rotating 5s linear infinite;
 }
 
-.rader-rotate > img {
+.rader-rotate::after {
+    content: '';
     position: absolute;
-    top: calc(89.16px - var(--rader-y));
-    left: calc(219.16px - var(--rader-y));
-    /* transform-origin: bottom right;
-    animation: rotating 3s linear infinite;  */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    background-color: var(--accent-red);
+    border-radius: 100vmin;
 }
 
 @keyframes rotating {
-    0% {
-        rotate: 0deg;
-    }
-    25% {
-        rotate: 90deg;
-    }
-    50% {
-        rotate: 180deg;
-    }
-    75% {
-        rotate: 270deg;
-    }
     100% {
-        rotate: 360deg;
+        transform: translate(-50%, calc(-50% - var(--rader-y) + 32px)) rotate(360deg);
     }
 }
 
@@ -353,11 +398,12 @@ body {
     position: relative;
     width: 931px;
     height: 931px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
     border-radius: 100vmin;
     top: calc(50% + var(--rader-y) + 32px);
     left: 50%;
     opacity: 0;
+    z-index: 10;
     transform: translate(-50%, calc(-50% - var(--rader-y) + 32px));
 }
 
@@ -376,8 +422,9 @@ body {
     width: 50%;
     height: 50%;
     background-color: transparent;
-    z-index: 1;
+    z-index: 100;
     transform-origin: bottom right;
+    /* background-color: var(--accent-green); */
 }
 
 .transparent-clip-one {
@@ -415,8 +462,8 @@ body {
     position: absolute;
     width: 50%;
     height: 50%;
-    background: #fc0;
     transition: all .3s ease;
+    background-color: var(--accent-blue);
 }
 
 .rader-sectors::after {
@@ -431,23 +478,23 @@ body {
     transition: all .3s ease;
 }
 
+/* .rader-circle-left-path .rader-sectors::after {
+    clip-path: polygon(11% 0, 100% 100%, 100% 0);
+} */
+
 .rader-sectors.dropped::after {
-    opacity:1;
+    opacity: 1;
 }
 
 .rader-sectors.ui-droppable-hover::after {
-    opacity:1;
-}
-
-.rader-sectors:hover::after {
-    opacity:1;
+    opacity: 1;
 }
 
 .rader-circle-left-path .rader-sectors {
-    top:0;
-    left:0;
-    transform-origin:bottom right;
-    border-right:2px solid #fff;
+    top: 0;
+    left: 0;
+    transform-origin: bottom right;
+    border-right: 2px solid #fff;
 }
 
 .rader-circle-left-path .rader-sectors.sector-one {
@@ -468,33 +515,64 @@ body {
 }
 
 .rader-circle-right-path .rader-sectors {
-    top:0;
-    right:0;
-    transform-origin:bottom left;
+    top: 0;
+    right: 0;
+    transform-origin: bottom left;
 }
 
-.rader-circle-right-path .rader-sectors:not(:first-of-type){
+.rader-circle-right-path .rader-sectors:not(:first-of-type) {
     border-left: 2px solid #fff;
 }
 
 .rader-circle-right-path .rader-sectors.sector-one {
-    transform:rotate(0deg);
+    transform: rotate(0deg);
 }
 
 .rader-circle-right-path .rader-sectors.sector-two {
-    transform:rotate(42deg);
+    transform: rotate(42deg);
 }
 
 .rader-circle-right-path .rader-sectors.sector-three {
-    transform:rotate(84deg);
+    transform: rotate(84deg);
 }
 
 .rader-circle-right-path .rader-sectors.sector-four {
-    transform:rotate(126deg);
+    transform: rotate(126deg);
 }
 
 .rader-circle-child {
-    width:calc(100% - 125px);
-    height:calc(100% - 125px);
+    width: calc(100% - 125px);
+    height: calc(100% - 125px);
     border: 2px solid #fff;
+}
+
+.rader-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    transform: translate(-50%, -50%);
+    background:#EAEAEA;
+    border-radius: 50%;
+}
+
+.rader-center-inner{
+    width: 70%;
+    height: 70%;
+    background:#ea1e1e;
+    border-radius: 50%;
+}
+
+/* drag and drop */
+
+.ui-draggable-dragging {
+    cursor: grabbing;
+}
+
+.ui-draggable-handle {
+    touch-action: none;
 }
