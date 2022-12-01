@@ -48,7 +48,7 @@ body {
     height: 100vh;
     object-fit: cover;
     z-index: -1;
-    top: -191px;
+    top: -181px;
     left: 0;
 }
 
@@ -65,7 +65,7 @@ body {
     max-height: calc(var(--rader-right-h) + 24px);
 }
 
-/* rader content left */
+/* -------------------- rader content left --------------------- */
 
 .rader-content-left {
     width: var(--rader-left-w);
@@ -247,7 +247,7 @@ body {
     gap: 12.49px;
 }
 
-/* rader content right */
+/* --------------- rader content right -------------------- */
 
 .rader-content-right {
     flex: 1 1 auto;
@@ -339,7 +339,7 @@ body {
     background: linear-gradient(270deg, rgba(255,204,0,1) 0%, rgba(255,204,0,0.4542191876750701) 58%, rgba(255,204,0,0) 100%);
 }
 
-/* rader image, rotating section */
+/* ------------------- rader image, rotating section ------------------------- */
 
 .rader-view {
     position: relative;
@@ -392,7 +392,7 @@ body {
     }
 }
 
-/* rader circle section */
+/* -------------------- rader circle section ------------------------ */
 
 .rader-circle-wrapper {
     position: relative;
