@@ -9,9 +9,11 @@ $(document).ready(function() {
         revertDuration: 500,
         start: function (e, ui) {
             $(this).addClass('on-dragging')
+            $('.rader-circle-wrapper').css('opacity', '1')
         },
         stop: function (e, ui) {
             $(this).removeClass('on-dragging')
+            $('.rader-circle-wrapper').css('opacity', '0')
         }
     })
 

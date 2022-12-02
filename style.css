@@ -70,6 +70,7 @@ body {
 .rader-content-left {
     width: var(--rader-left-w);
     height: calc(var(--rader-right-h) + 24px);
+    max-height: calc(var(--rader-right-h) + 24px);
     display: grid;
     grid-template-rows: auto auto 1fr;
     margin-left: 55px;
@@ -105,7 +106,7 @@ body {
 }
 
 .rader-info-wrapper {
-    width: 100%;
+    max-width: 100%;
     position: relative;
     grid-row: 3 / 4;
     transform: translateY(-24px);
@@ -170,8 +171,7 @@ body {
 .rader-info-data.on-dragging,
 .rader-info-data.dragged {
     padding: 0;
-    display: inline;
-    width: unset;
+    width: max-content;
     border: none;
     background-image: unset;
     cursor: grab;
@@ -207,7 +207,16 @@ body {
 .rader-info-data.on-dragging > .rader-info-data-left .mark,
  .rader-info-data.dragged > .rader-info-data-left .mark{
     background-color: var(--accent-green);
+    width: 30px;
+    height: 30px;
 }
+
+.rader-info-data.on-dragging > .rader-info-data-left .mark::before,
+ .rader-info-data.dragged > .rader-info-data-left .mark::before {
+    width: 13.5px;
+    height: 13.5px;
+ }
+
 
 .rader-info-data-left {
     display: flex;
@@ -227,8 +236,8 @@ body {
 .mark::before {
     content: '';
     position: absolute;
-    width: 40%;
-    height: 40%;
+    width: 7.2px;
+    height: 7.2px;
     background-color: var(--light);
     top: 50%;
     left: 50%;
@@ -465,7 +474,7 @@ body {
     width: 50%;
     height: 50%;
     transition: all .3s ease;
-    background-color: var(--accent-blue);
+    background-color: #FFDD7E;
 }
 
 .rader-sectors::after {

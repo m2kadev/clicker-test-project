@@ -42,6 +42,19 @@
     font-weight: bold;
   }
 
+  .rader-info-data.on-dragging > .rader-info-data-left .mark,
+ .rader-info-data.dragged > .rader-info-data-left .mark{
+    background-color: var(--accent-green);
+    width: 25px;
+    height: 25px;
+}
+
+.rader-info-data.on-dragging > .rader-info-data-left .mark::before,
+ .rader-info-data.dragged > .rader-info-data-left .mark::before {
+    width: 11.5px;
+    height: 11.5px;
+ }
+
   .filter-flex > img {
     width: 23.208px;
   }
