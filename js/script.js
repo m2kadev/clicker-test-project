@@ -1,9 +1,7 @@
 $(document).ready(function() {
 
-    
-
     $('.rader-info-data').draggable({
-        containment: '.rader-content-wrapper',
+        containment: 'body',
         stack: '.rader-info-data',
         opacity: 0.5,
         addClass: true,
@@ -12,6 +10,7 @@ $(document).ready(function() {
         start: function (e, ui) {
             $(this).addClass('on-dragging')
             $('.rader-circle-wrapper').css('opacity', '1')
+
         },
         stop: function (e, ui) {
             $(this).removeClass('on-dragging')

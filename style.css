@@ -9,6 +9,7 @@
 :root {
     --light: #fff;
     --accent-red: #D40511;
+    --red-light: #d71635;
     --accent-yellow: #FFCC00;
     --accent-blue: #146BB0;
     --accent-green: #6D942D;
@@ -176,6 +177,7 @@ body {
     background-image: unset;
     cursor: grab;
     position: absolute;
+    z-index: -10;
 }
 
 
@@ -189,7 +191,7 @@ body {
 
 .rader-info-data.on-dragging  p,
 .rader-info-data.dragged p {
-    color: #B59334;
+    color: #000;
     font-size: var(--font-small);
 }
 
@@ -212,6 +214,10 @@ body {
     width: 30px;
     height: 30px;
 }
+
+ .rader-info-data.dragged > .rader-info-data-left {
+    gap: 10.4px;
+ }
 
 .rader-info-data.on-dragging > .rader-info-data-left .mark::before,
  .rader-info-data.dragged > .rader-info-data-left .mark::before {
@@ -377,12 +383,10 @@ body {
     position: absolute;
     width: 931px;
     height: 931px;
-    background-color: transparent;
     border-radius: 100vmin;
     top: calc(50% + var(--rader-y) + 32px);
-    background-color: transparent;
     left: 50%;
-    z-index: -1;
+    z-index: 10;
     transform: translate(-50%, calc(-50% - var(--rader-y) + 32px));
     animation: rotating 5s linear infinite;
 }
@@ -411,12 +415,13 @@ body {
     position: relative;
     width: 931px;
     height: 931px;
-    background-color: transparent;
     border-radius: 100vmin;
     top: calc(50% + var(--rader-y) + 32px);
     left: 50%;
     opacity: 0;
-    z-index: 10;
+    transition: .3s;
+    z-index: -10;
+    overflow: hidden;
     transform: translate(-50%, calc(-50% - var(--rader-y) + 32px));
 }
 
@@ -427,14 +432,12 @@ body {
     display: flex;
     overflow: hidden;
     border-radius: 100vmin;
-    border: 2px dashed var(--accent-red);
 }
 
 .transparent-clip-one, .transparent-clip-two {
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: transparent;
     z-index: 100;
     transform-origin: bottom right;
     /* background-color: var(--accent-green); */
@@ -569,14 +572,14 @@ body {
     width: 70px;
     height: 70px;
     transform: translate(-50%, -50%);
-    background:#EAEAEA;
+    background:#FFE59D;
     border-radius: 50%;
 }
 
-.rader-center-inner{
-    width: 70%;
-    height: 70%;
-    background:#ea1e1e;
+.rader-center-inner {
+    width: 36px;
+    height: 36px;
+    background: var(--red-light);
     border-radius: 50%;
 }
 
