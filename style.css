@@ -177,16 +177,12 @@ body {
     background-image: unset;
     cursor: grab;
     z-index: -10;
-}
-
-.rader-info-data.on-dragging {
-    position: relative;
+    position: absolute;
 }
 
 
 .rader-info-data.dragged {
     cursor: grab;
-    position: fixed;
 }
 
 .rader-info-data.on-dragging {
@@ -403,7 +399,7 @@ body {
     transform: translate(-50%, -50%);
     width: 36px;
     height: 36px;
-    background-color: var(--accent-red);
+    background-color: var(--red-light);
     border-radius: 100vmin;
 }
 
