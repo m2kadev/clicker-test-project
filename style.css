@@ -176,13 +176,17 @@ body {
     border: none;
     background-image: unset;
     cursor: grab;
-    position: absolute;
     z-index: -10;
+}
+
+.rader-info-data.on-dragging {
+    position: relative;
 }
 
 
 .rader-info-data.dragged {
     cursor: grab;
+    position: fixed;
 }
 
 .rader-info-data.on-dragging {
