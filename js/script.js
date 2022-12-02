@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    
+
     $('.rader-info-data').draggable({
         containment: '.rader-content-wrapper',
         stack: '.rader-info-data',

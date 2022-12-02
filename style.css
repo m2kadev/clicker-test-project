@@ -175,7 +175,9 @@ body {
     border: none;
     background-image: unset;
     cursor: grab;
+    position: absolute;
 }
+
 
 .rader-info-data.dragged {
     cursor: grab;
