@@ -1,14 +1,32 @@
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1673px) {
+
   :root {
     --rader-y: -55.75px;
-    --rader-right-h: 780px;
-     --font-medium: 24px;
+    --rader-right-h: 950px;
+  }
+
+  .rader-background {
+    transform: translate(calc(var(--rader-left-w) / -4), var(--rader-y)) scale(.8);
+  }
+
+  .btn-md, .btn-md-2 {
+    font-size: 20px;
+  }
+
+}
+
+@media only screen and (max-width: 1556px) { 
+
+  :root {
+    --rader-y: -55.75px;
+    --rader-right-h: 880px;
+    --font-medium: 24px;
     --font-small: 16px;
     --rader-left-w: 578px;
   }
 
   .rader-background {
-    transform: translate(calc(var(--rader-left-w) / -4), var(--rader-y)) scale(.65);
+    transform: translate(calc(var(--rader-left-w) / -4), var(--rader-y)) scale(.75);
   }
 
   .btn-md {
@@ -17,10 +35,6 @@
 
   .btn-md-2 {
     font-size: 20px;
-  }
-
-  .filter-flex {
-    margin-top: 23.5px;
   }
 
   .filter-flex > span {
@@ -33,7 +47,7 @@
   }
 
   .main-logo-wrapper > img {
-    width: 175.8px;
+    width: 225.8px;
   }
 
   .rader-info-data-right img {
@@ -44,8 +58,36 @@
     padding: 8.29px 18.5px;
   }
 
-  .main-logo-wrapper {
-    margin-top: 19.8px;
+  .btn-md, .btn-md-2 {
+    font-size: 20px;
+  }
 }
 
+@media only screen and (max-width: 1400px) {
+
+  :root {
+    --rader-y: -55.75px;
+    --rader-right-h: 780px;
+    --font-medium: 24px;
+    --font-small: 16px;
+    --rader-left-w: 578px;
+  }
+
+  .main-logo-wrapper > img {
+    width: 175.8px;
+  }
+
+   .main-logo-wrapper {
+    margin-top: 19.8px;
+  }
+
+  .filter-flex {
+    margin-top: 23.5px;
+  }
+  
+  .rader-background {
+    transform: translate(calc(var(--rader-left-w) / -4), var(--rader-y)) scale(.65);
+  }
+
 }
+

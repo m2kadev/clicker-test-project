@@ -113,6 +113,17 @@ body {
     /* overflow: hidden; */
 }
 
+.rader-info-wrapper::after {
+    content: '';
+    width: calc(100% - var(--info-gap));
+    position: absolute;
+    height: 175px;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    background-image: linear-gradient(180deg, rgba(4, 13, 52, 0) 0%, #040c29 100%);
+}
+
 .rader-info {
     display: flex;
     flex-wrap: wrap;
@@ -125,16 +136,7 @@ body {
     /* overflow-y: auto; */
 }
 
-.rader-info-wrapper::after {
-    content: '';
-    width: calc(100% - var(--info-gap));
-    position: absolute;
-    height: 175px;
-    left: 0;
-    bottom: 0;
-    z-index: 100;
-    background-image: linear-gradient(180deg, rgba(4, 13, 52, 0) 0%, #040c29 100%);
-}
+
 
 /* custom rader info scrollbar */
 
